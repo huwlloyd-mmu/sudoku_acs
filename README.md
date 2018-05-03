@@ -1,5 +1,16 @@
-# sudoku_release
-Release candidate for the sudoku ant system
+# sudoku_acs
+
+Ant colony optimisation for the Sudoku problem. 
+
+## Instance data
+
+### instances/general
+
+General (not guaranteed unique solution) instances of 9x9, 16x16 and 25x25 sudoku. File name is inst_f_n.txt, where __f__ is the fixed cell percentage (0-95) and __n__ is the instance number (100 for each size and fixed cell fraction).
+
+### instances/logic-solvable
+
+Sixteen 9x9 logic-solvable instances. See the paper for details.
 
 ## Build
 
@@ -35,4 +46,14 @@ __--q0 value__ set ACS q0 parameter (which controls greediness) - default 0.9
 __--rho value__ set ACS rho parameter (which controls pheromone evaporation) - default 0.9
 
 __--evap f__ use value f for the best-value evaporation parameter. Default is 0.005
+
+## Examples
+
+Solve the 'platinum blond' puzzle using ACS, showing the initial constrained grid and the full solution
+
+./sudokusolver --file instances/logic-solvable/platinumblond.txt --showinitial --verbose
+
+Solve a 16x16 general instance using backtracking seach
+
+./sudokusolver --alg 1 --file instances/general/inst16x16_45_10.txt --verbose
 
